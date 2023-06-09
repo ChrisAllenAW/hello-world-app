@@ -1,9 +1,16 @@
-import ForgeUI, { render, Fragment, Macro, Text } from "@forge/ui";
+import ForgeUI, { render, Fragment, Macro, Text, useProductContext, useState } from "@forge/ui";
+import api, { route } from "@forge/api";
 
 const App = () => {
+  const context = useProductContext();
+
+  const [comments] = useState(async () => fetchCommentsForContent(context.contentId));
+
+  console.log(`Number of comments on this page: ${comments.length}`);
+
   return (
     <Fragment>
-      <Text>Hello world! Text was changed again.</Text>
+      <Text>Hello world!</Text>
     </Fragment>
   );
 };
@@ -12,4 +19,15 @@ export const run = render(
   <Macro
     app={<App />}
   />
+
 );
+
+const fetchCommentsForContent = async (contentId) => {
+  const res = await api
+    .asUser()
+    .requestConfluence(route`/wiki/rest/api/content/${contentId}/child/comment`);
+
+  const data = await res.json();
+  return data.results;
+};
+  
