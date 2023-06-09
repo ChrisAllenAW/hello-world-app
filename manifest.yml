@@ -2,7 +2,7 @@ modules:
   macro:
     - key: hello-world-app-hello-world
       function: main
-      title: hello-world-app
+      title: Forge app for Chris
       description: Inserts Hello world!
   function:
     - key: main

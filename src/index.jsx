@@ -3,7 +3,7 @@ import ForgeUI, { render, Fragment, Macro, Text } from "@forge/ui";
 const App = () => {
   return (
     <Fragment>
-      <Text>Hello world!</Text>
+      <Text>Hello world! Text was changed again.</Text>
     </Fragment>
   );
 };
