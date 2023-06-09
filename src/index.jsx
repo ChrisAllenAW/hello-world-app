@@ -11,6 +11,9 @@ const App = () => {
   return (
     <Fragment>
       <Text>Hello world!</Text>
+      <Text>
+        Number of comments on this page: {comments.length}
+      </Text>
     </Fragment>
   );
 };
